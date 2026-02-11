@@ -8,6 +8,25 @@
 <meta name="keywords" content="Lombok villas, luxury villas Indonesia, Lombok real estate, pre-construction villas, Lombok investment property, buy villa Lombok, Lombok property for sale, Mandalika villas, next Bali investment, tropical villa investment">
 <link rel="canonical" href="https://yaraestateslombok.com/">
 
+<!-- Meta Pixel (replace PIXEL_ID_HERE after creating ad account) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'PIXEL_ID_HERE');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID_HERE&ev=PageView&noscript=1"/></noscript>
+
+<!-- Google Analytics (replace GA_ID_HERE after setup) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID_HERE"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','GA_ID_HERE');
+</script>
+
 <!-- Open Graph -->
 <meta property="og:title" content="Yara Estates Lombok — Luxury Villas from $199K">
 <meta property="og:description" content="Pre-construction luxury villas in Lombok, Indonesia. Transparent pricing, flexible payment plans. 12-18% projected rental yields. Only 15 villas available.">
@@ -1161,7 +1180,7 @@ footer { background: var(--brown); padding: 50px 20px 30px; text-align: center; 
           </select>
         </div>
       </div>
-      <button type="submit" class="form-submit">Send Me the Investor Guide →</button>
+      <button type="submit" class="form-submit" onclick="if(typeof fbq!=='undefined')fbq('track','Lead');if(typeof gtag!=='undefined')gtag('event','generate_lead',{currency:'USD',value:299});">Send Me the Investor Guide →</button>
       <p class="form-note">🔒 Your information is 100% private. No spam, ever.</p>
     </form>
   </div>
