@@ -2,8 +2,8 @@
 html,body{max-width:100vw;overflow-x:hidden}
 table{width:100%;border-collapse:collapse}
 @media(max-width:768px){
-  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:calc(100vw - 40px);font-size:.8rem;margin-left:0;margin-right:0}
-  table th,table td{padding:6px 8px;white-space:nowrap}
+  table{max-width:100%;font-size:.8rem;margin-left:0;margin-right:0}
+  table th,table td{padding:6px 8px;white-space:normal;word-break:break-word}
   .sheet{padding:20px 15px !important}
   .grid{grid-template-columns:1fr !important}
   .highlight-row{grid-template-columns:1fr 1fr !important}
