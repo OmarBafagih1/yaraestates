@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yara Estates Lombok — Investor Brochure</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terracotta: #c67b5c;
+  --teal: #1a6b5a;
+  --sand: #f5e6c8;
+  --gold: #d4af37;
+  --dark: #2c2420;
+  --cream: #fdf8f0;
+  --white: #ffffff;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--dark);
+  background: var(--cream);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+h1, h2, h3, h4 { font-family: 'Amiri', serif; font-weight: 700; line-height: 1.2; }
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--white);
+  box-shadow: 0 0 60px rgba(0,0,0,0.08);
+}
+
+/* ── Cover ── */
+.cover {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--teal) 0%, #0d4a3e 60%, var(--dark) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '✦';
+  position: absolute;
+  font-size: 400px;
+  color: rgba(212,175,55,0.04);
+  top: -80px;
+  right: -60px;
+}
+.cover-ornament {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0 auto 30px;
+  position: relative;
+}
+.cover-ornament::before, .cover-ornament::after {
+  content: '◆';
+  position: absolute;
+  color: var(--gold);
+  font-size: 10px;
+  top: -5px;
+}
+.cover-ornament::before { left: -16px; }
+.cover-ornament::after { right: -16px; }
+.cover-logo {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 50px;
+}
+.cover h1 {
+  font-size: 52px;
+  color: var(--white);
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+.cover .subtitle {
+  font-size: 20px;
+  color: var(--sand);
+  font-weight: 300;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+.cover .tagline {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 60px;
+}
+
+/* ── Sections ── */
+.section {
+  padding: 80px 60px;
+}
+.section:nth-child(even) {
+  background: var(--cream);
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.section h2 {
+  font-size: 36px;
+  color: var(--teal);
+  margin-bottom: 30px;
+}
+.section h3 {
+  font-size: 24px;
+  color: var(--dark);
+  margin: 30px 0 15px;
+}
+.section p {
+  max-width: 720px;
+  margin-bottom: 18px;
+  color: #4a4340;
+}
+.lead {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--dark);
+}
+
+/* ── Divider ── */
+.divider {
+  text-align: center;
+  padding: 10px 0;
+  color: var(--gold);
+  font-size: 18px;
+  letter-spacing: 12px;
+}
+
+/* ── Stats Grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid rgba(198,123,92,0.15);
+  border-radius: 12px;
+  padding: 30px 24px;
+  text-align: center;
+}
+.stat-card .number {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  color: var(--terracotta);
+  font-weight: 700;
+}
+.stat-card .label {
+  font-size: 13px;
+  color: #7a7270;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ── Image Grid ── */
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 40px 0;
+}
+.image-grid .img-placeholder {
+  background: linear-gradient(135deg, var(--sand) 0%, #e8d5b5 100%);
+  border-radius: 12px;
+  aspect-ratio: 16/10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--terracotta);
+  font-size: 13px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+.image-grid .img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.image-grid .wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 21/9;
+}
+
+/* ── Feature List ── */
+.feature-list {
+  list-style: none;
+  margin: 20px 0;
+}
+.feature-list li {
+  padding: 12px 0 12px 36px;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: #4a4340;
+}
+.feature-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 14px;
+}
+
+/* ── Comparison Table ── */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  font-size: 14px;
+}
+.comp-table thead th {
+  background: var(--teal);
+  color: var(--white);
+  padding: 14px 18px;
+  text-align: left;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+.comp-table thead th:first-child { border-radius: 8px 0 0 0; }
+.comp-table thead th:last-child { border-radius: 0 8px 0 0; }
+.comp-table tbody td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.comp-table tbody tr:hover { background: rgba(245,230,200,0.3); }
+.comp-table .highlight {
+  background: rgba(26,107,90,0.06);
+  font-weight: 600;
+}
+.comp-table .highlight td { color: var(--teal); }
+
+/* ── Value Stack ── */
+.value-stack {
+  background: linear-gradient(135deg, var(--teal), #0d4a3e);
+  border-radius: 16px;
+  padding: 50px;
+  margin: 40px 0;
+  color: var(--white);
+}
+.value-stack h3 {
+  font-family: 'Amiri', serif;
+  color: var(--gold);
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.stack-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.stack-item:last-child { border: none; }
+.stack-item .desc { font-weight: 300; }
+.stack-item .val {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  color: var(--gold);
+}
+.stack-total {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid var(--gold);
+}
+.stack-total .you-pay {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.6);
+}
+.stack-total .price {
+  font-family: 'Amiri', serif;
+  font-size: 48px;
+  color: var(--gold);
+}
+.stack-total .note {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+
+/* ── Payment Timeline ── */
+.timeline {
+  display: flex;
+  gap: 0;
+  margin: 40px 0;
+}
+.timeline-step {
+  flex: 1;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.timeline-step:first-child { border-radius: 12px 0 0 12px; }
+.timeline-step:last-child { border-radius: 0 12px 12px 0; }
+.timeline-step .pct {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  color: var(--terracotta);
+}
+.timeline-step .when {
+  font-size: 12px;
+  color: #7a7270;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+.timeline-step .amt {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-top: 8px;
+}
+
+/* ── FAQ ── */
+.faq-item {
+  margin-bottom: 28px;
+}
+.faq-item .q {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+.faq-item .a {
+  color: #5a5350;
+  padding-left: 20px;
+  border-left: 3px solid var(--sand);
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: linear-gradient(135deg, var(--terracotta), #a8614a);
+  padding: 80px 60px;
+  text-align: center;
+  color: var(--white);
+}
+.cta-section h2 {
+  color: var(--white);
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.cta-section p {
+  color: rgba(255,255,255,0.85);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 17px;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+.contact-item {
+  background: rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 20px;
+}
+.contact-item .cl { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+.contact-item a { color: var(--white); text-decoration: none; font-weight: 500; }
+.contact-item a:hover { text-decoration: underline; }
+
+.urgency-bar {
+  background: var(--gold);
+  color: var(--dark);
+  text-align: center;
+  padding: 16px 30px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 30px 60px;
+  font-size: 11px;
+  color: #aaa;
+  background: var(--dark);
+}
+
+/* ── Print ── */
+@media print {
+  body { background: white; font-size: 11pt; }
+  .page { box-shadow: none; max-width: 100%; }
+  .cover { min-height: auto; padding: 60px 40px; page-break-after: always; }
+  .section { padding: 40px; page-break-inside: avoid; }
+  .section:nth-child(even) { background: white; }
+  .value-stack { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .cta-section { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .urgency-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .comp-table thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .stat-card { break-inside: avoid; }
+  .faq-item { break-inside: avoid; }
+}
+
+@media (max-width: 640px) {
+  .cover { padding: 60px 30px; }
+  .cover h1 { font-size: 34px; }
+  .section { padding: 50px 30px; }
+  .image-grid { grid-template-columns: 1fr; }
+  .timeline { flex-direction: column; }
+  .timeline-step { border-radius: 0 !important; }
+  .value-stack { padding: 30px 24px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-logo">☽ Yara Estates ☽</div>
+    <div class="cover-ornament"></div>
+    <h1>Your Gateway to Paradise</h1>
+    <p class="subtitle">Luxury Villas in Lombok, Indonesia — From $100,000</p>
+    <p class="tagline">Investor Brochure 2026</p>
+  </div>
+
+  <!-- VISION -->
+  <div class="section">
+    <div class="section-label">The Vision</div>
+    <h2>A Dream We're Building Together</h2>
+    <p class="lead">Yara Estates is more than a development — it's an invitation to own a piece of the world's fastest-growing luxury destination before the rest of the world catches on.</p>
+    <p>Nestled in the lush, untouched south coast of Lombok, Indonesia, Yara Estates is a boutique collection of 15 luxury villas designed for the discerning investor who understands that the best returns come from getting in early.</p>
+    <p>Lombok is where Bali was 15 years ago — pristine beaches, world-class surf, breathtaking landscapes — but with land prices at a fraction of the cost. The Indonesian government has poured billions into infrastructure, a new international airport expansion, and the Mandalika Special Economic Zone. The stage is set. The curtain is rising.</p>
+    <p>We built Yara Estates for people who don't just want a property — they want a legacy. A place where your investment grows while your family makes memories. Where tropical modern architecture meets the warmth of island living.</p>
+  </div>
+
+  <div class="divider">◆ ◆ ◆</div>
+
+  <!-- WHY LOMBOK -->
+  <div class="section">
+    <div class="section-label">Why Lombok</div>
+    <h2>The Next Bali — Before Everyone Else Arrives</h2>
+    <p class="lead">Every decade, a destination emerges that redefines luxury travel. In the 2020s, that destination is Lombok.</p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">25</div>
+        <div class="label">Minutes from Bali by air</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">⅓</div>
+        <div class="label">The price of comparable Bali land</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">30-50%</div>
+        <div class="label">Annual land value appreciation</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">$3B+</div>
+        <div class="label">Government infrastructure investment</div>
+      </div>
+    </div>
+
+    <ul class="feature-list">
+      <li><strong>MotoGP Mandalika Circuit</strong> — Putting Lombok on the global stage with millions of annual visitors</li>
+      <li><strong>Mandalika Special Economic Zone</strong> — Tax incentives and fast-tracked development approvals</li>
+      <li><strong>New Airport Expansion</strong> — Lombok International Airport upgrading to handle 7M+ passengers/year</li>
+      <li><strong>Global Press Coverage</strong> — Featured in Forbes, Bloomberg, CNN Travel, and Condé Nast Traveler as the #1 emerging destination</li>
+      <li><strong>Untouched Beauty</strong> — Pristine beaches, Mount Rinjani, and the Gili Islands minutes away</li>
+      <li><strong>Digital Nomad Hub</strong> — Fast-growing remote work community driving year-round demand</li>
+    </ul>
+  </div>
+
+  <!-- PROPERTY -->
+  <div class="section">
+    <div class="section-label">The Property</div>
+    <h2>15 Luxury Villas, Crafted for Paradise</h2>
+    <p class="lead">Tropical modern architecture that blends Indonesian craftsmanship with contemporary design — every villa is a sanctuary.</p>
+
+    <div class="image-grid">
+      <div class="img-placeholder wide">
+        <img src="../renders/estate-aerial.png" alt="Yara Estates aerial view" onerror="this.style.display='none';this.parentElement.textContent='[ Estate Aerial View ]'">
+      </div>
+      <div class="img-placeholder">
+        <img src="../renders/villa-exterior-front.png" alt="Villa exterior" onerror="this.style.display='none';this.parentElement.textContent='[ Villa Exterior ]'">
+      </div>
+      <div class="img-placeholder">
+        <img src="../renders/villa-interior-living.png" alt="Villa interior living room" onerror="this.style.display='none';this.parentElement.textContent='[ Interior — Living Room ]'">
+      </div>
+      <div class="img-placeholder">
+        <img src="../renders/villa-interior-bedroom.png" alt="Villa interior bedroom" onerror="this.style.display='none';this.parentElement.textContent='[ Interior — Bedroom ]'">
+      </div>
+      <div class="img-placeholder">
+        <img src="../renders/villa-exterior-front.png" alt="Villa with pool" onerror="this.style.display='none';this.parentElement.textContent='[ Private Pool & Gardens ]'">
+      </div>
+    </div>
+
+    <ul class="feature-list">
+      <li><strong>150 sqm per villa</strong> — Spacious 2-floor layout with open-plan living</li>
+      <li><strong>Premium materials</strong> — Local teak, natural stone, handcrafted tiles</li>
+      <li><strong>Private pool options</strong> — Infinity-edge plunge pools available</li>
+      <li><strong>Lush tropical gardens</strong> — Landscaped with native flora</li>
+      <li><strong>Smart-home ready</strong> — Pre-wired for modern automation</li>
+      <li><strong>Fully furnished packages</strong> — Move-in or rent-out ready</li>
+    </ul>
+  </div>
+
+  <div class="divider">◆ ◆ ◆</div>
+
+  <!-- INVESTMENT HIGHLIGHTS -->
+  <div class="section">
+    <div class="section-label">Investment Highlights</div>
+    <h2>The Numbers Don't Lie</h2>
+    <p class="lead">At $100,000 all-in, Yara Estates offers one of the most compelling risk-reward profiles in Southeast Asian real estate.</p>
+
+    <div class="value-stack">
+      <h3>What You're Getting</h3>
+      <div class="stack-item">
+        <span class="desc">Luxury 150sqm villa (2 floors)</span>
+        <span class="val">$120K+</span>
+      </div>
+      <div class="stack-item">
+        <span class="desc">Premium land in Lombok's growth corridor</span>
+        <span class="val">$40K+</span>
+      </div>
+      <div class="stack-item">
+        <span class="desc">Full legal setup (PT PMA company)</span>
+        <span class="val">$8K</span>
+      </div>
+      <div class="stack-item">
+        <span class="desc">Architectural & interior design</span>
+        <span class="val">$15K</span>
+      </div>
+      <div class="stack-item">
+        <span class="desc">Property management setup</span>
+        <span class="val">$5K</span>
+      </div>
+      <div class="stack-item">
+        <span class="desc">Rental listing & marketing package</span>
+        <span class="val">$3K</span>
+      </div>
+      <div class="stack-total">
+        <div class="you-pay">Total value: $191K+ — You pay</div>
+        <div class="price">$100,000</div>
+        <div class="note">All-inclusive. No hidden fees. No surprises.</div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">12-18%</div>
+        <div class="label">Projected annual rental yield</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">2-3×</div>
+        <div class="label">Expected appreciation in 5 years</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">$100K</div>
+        <div class="label">All-in cost per villa</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">15</div>
+        <div class="label">Total villas — limited supply</div>
+      </div>
+    </div>
+
+    <h3>How Lombok Compares</h3>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Lombok</th>
+          <th>Bali</th>
+          <th>Thailand</th>
+          <th>Maldives</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>Villa cost (similar spec)</td>
+          <td><strong>$100K</strong></td>
+          <td>$300K+</td>
+          <td>$250K+</td>
+          <td>$500K+</td>
+        </tr>
+        <tr>
+          <td>Annual rental yield</td>
+          <td><strong>12-18%</strong></td>
+          <td>6-10%</td>
+          <td>5-8%</td>
+          <td>4-7%</td>
+        </tr>
+        <tr class="highlight">
+          <td>Land appreciation (YoY)</td>
+          <td><strong>30-50%</strong></td>
+          <td>5-10%</td>
+          <td>3-7%</td>
+          <td>2-5%</td>
+        </tr>
+        <tr>
+          <td>Foreign ownership</td>
+          <td><strong>Yes (PT PMA)</strong></td>
+          <td>Leasehold</td>
+          <td>Condo only</td>
+          <td>Leasehold</td>
+        </tr>
+        <tr class="highlight">
+          <td>Growth stage</td>
+          <td><strong>Early</strong></td>
+          <td>Mature</td>
+          <td>Mature</td>
+          <td>Niche</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LEGAL -->
+  <div class="section">
+    <div class="section-label">Legal &amp; Ownership</div>
+    <h2>Own It Legally. Own It Fully.</h2>
+    <p class="lead">Foreign ownership in Indonesia is straightforward when structured correctly — and we handle everything for you.</p>
+
+    <h3>PT PMA Structure</h3>
+    <p>Through a <strong>PT PMA</strong> (foreign-owned Indonesian company), you gain full legal ownership of your property. This is the gold standard structure used by international investors across Indonesia — fully compliant with Indonesian law and protected by bilateral investment treaties.</p>
+
+    <ul class="feature-list">
+      <li><strong>100% legal foreign ownership</strong> — Your name, your company, your asset</li>
+      <li><strong>Full legal support included</strong> — From company setup to title transfer, handled by our legal partners</li>
+      <li><strong>Bilateral treaty protection</strong> — Your investment is protected under international law</li>
+      <li><strong>Transparent process</strong> — You'll understand every document you sign</li>
+      <li><strong>Inheritance-friendly</strong> — Easily transferable to heirs or future buyers</li>
+    </ul>
+  </div>
+
+  <div class="divider">◆ ◆ ◆</div>
+
+  <!-- PAYMENT -->
+  <div class="section">
+    <div class="section-label">Payment Structure</div>
+    <h2>Flexible, Fair, Founder-Friendly</h2>
+    <p class="lead">We've structured payments to align with construction milestones — you pay as we build, so your money is always tied to tangible progress.</p>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="pct">30%</div>
+        <div class="when">Deposit</div>
+        <div class="amt">$30,000</div>
+      </div>
+      <div class="timeline-step">
+        <div class="pct">40%</div>
+        <div class="when">During Construction</div>
+        <div class="amt">$40,000</div>
+      </div>
+      <div class="timeline-step">
+        <div class="pct">30%</div>
+        <div class="when">On Completion</div>
+        <div class="amt">$30,000</div>
+      </div>
+    </div>
+
+    <ul class="feature-list">
+      <li><strong>Flexible payment plans</strong> — Talk to us about custom arrangements</li>
+      <li><strong>Milestone-based</strong> — Every payment tied to verified construction progress</li>
+      <li><strong>Secure escrow options</strong> — Third-party escrow available for peace of mind</li>
+      <li><strong>No hidden fees</strong> — $100K covers everything: land, build, legal, design</li>
+    </ul>
+  </div>
+
+  <!-- TEAM -->
+  <div class="section">
+    <div class="section-label">The Team</div>
+    <h2>Built by People Who Know the Land</h2>
+    <p class="lead">Led by experienced real estate developers with deep roots in Indonesia, our team combines international investment expertise with local knowledge that only comes from years on the ground.</p>
+    <p>From site selection to architectural design, legal structuring to property management — every aspect of Yara Estates is overseen by professionals who are personally invested in this project's success.</p>
+    <p>We don't just build villas. We build trust. Every investor gets direct access to our founding team, regular construction updates, and complete transparency at every stage.</p>
+  </div>
+
+  <div class="divider">◆ ◆ ◆</div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <div class="section-label">Frequently Asked Questions</div>
+    <h2>Everything You Need to Know</h2>
+
+    <div class="faq-item">
+      <div class="q">Can foreigners really own property in Indonesia?</div>
+      <div class="a">Yes. Through a PT PMA (foreign-owned company), you gain full legal ownership. This is the standard structure used by thousands of international investors and is fully recognized under Indonesian law.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">What does "$100K all-in" actually include?</div>
+      <div class="a">Everything: land acquisition, villa construction (150sqm, 2 floors), architectural design, interior finishing, legal setup (PT PMA), permits, and property management onboarding. No hidden costs.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">How are the 12-18% rental yields achievable?</div>
+      <div class="a">Lombok's nightly villa rates range $80-$200+ on platforms like Airbnb and Booking.com, with 65-80% occupancy in tourist seasons. At a $100K cost basis, even conservative estimates deliver double-digit yields.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">What if I want to use the villa myself?</div>
+      <div class="a">It's yours. Use it whenever you want. Many investors block personal weeks and rent the rest — enjoying both lifestyle and income.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">How long does construction take?</div>
+      <div class="a">12-16 months from deposit to completion. You'll receive monthly photo and video updates, plus milestone reports from our project management team.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">Can I sell the property later?</div>
+      <div class="a">Absolutely. You own it outright through your PT PMA. Sell, transfer, or pass to heirs — the same as any property you own anywhere in the world.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">Is there property management available?</div>
+      <div class="a">Yes. We offer full-service property management including guest management, cleaning, maintenance, and Airbnb/Booking.com listing optimization — so you earn passively from anywhere in the world.</div>
+    </div>
+  </div>
+
+  <!-- URGENCY -->
+  <div class="urgency-bar">
+    ⚡ Only 15 villas available — 4 already reserved. Early investors lock in founder pricing. ⚡
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Your Next Step Is Simple</h2>
+    <p>Book a 30-minute call with our team. We'll walk you through the numbers, answer every question, and — if it's the right fit — reserve your villa.</p>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="cl">Schedule a Call</div>
+        <a href="https://calendly.com/yaraestateslombok1/30min">calendly.com/yaraestateslombok1</a>
+      </div>
+      <div class="contact-item">
+        <div class="cl">WhatsApp</div>
+        <a href="https://wa.me/16504777156">+1 (650) 477-7156</a>
+      </div>
+      <div class="contact-item">
+        <div class="cl">Email</div>
+        <a href="mailto:bafagihomar260@gmail.com">bafagihomar260@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="cl">Website</div>
+        <a href="https://yaraestateslombok.com">yaraestateslombok.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="cl">Instagram</div>
+        <a href="https://instagram.com/yaraestateslombok">@yaraestateslombok</a>
+      </div>
+      <div class="contact-item">
+        <div class="cl">Twitter</div>
+        <a href="https://twitter.com/YaraEstates">@YaraEstates</a>
+      </div>
+    </div>
+
+    <p style="font-size:14px; color:rgba(255,255,255,0.5); margin-top:30px;">
+      "The best time to invest was yesterday. The second best time is today."
+    </p>
+  </div>
+
+  <div class="footer">
+    © 2026 Yara Estates Lombok. All rights reserved. This brochure is for informational purposes only and does not constitute financial advice. Projected returns are estimates based on current market conditions.
+  </div>
+
+</div>
+</body>
+</html>
